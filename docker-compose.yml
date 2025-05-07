@@ -40,5 +40,16 @@ services:
     depends_on:
       - php
 
+  # node
+  node:
+    image: node:22-alpine # Use the latest stable Node.js version
+    container_name: node-laravel_project_starter
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    command: sh -c "npm install && npm run build"
+    depends_on:
+      - php
+
 volumes:
   mysql-data:

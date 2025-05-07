@@ -41,6 +41,7 @@ RUN set -eux; \
         json \
         mbstring \
         openssl \
+        pcntl \
         pcre \
         session \
         pdo pdo_mysql \

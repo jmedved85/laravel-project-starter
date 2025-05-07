@@ -1,0 +1,9 @@
+
+- new Laravel project
+docker exec -it php-laravel_project_starter laravel new my-app
+
+- new Laravel project inside current empty directory
+docker exec -it php-laravel_project_starter laravel new .
+
+- new Laravel project inside current non-empty directory
+docker exec -it php-laravel_project_starter laravel new . --force
