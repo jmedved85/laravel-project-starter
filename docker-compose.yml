@@ -42,12 +42,16 @@ services:
 
   # node
   node:
-    image: node:22-alpine # Use the latest stable Node.js version
-    container_name: node-laravel_project_starter
+    image: node:22-alpine
+    container_name: node-laravel-net_ninja
     working_dir: /var/www/html
+    ports:
+      - "5173:5173"  # Expose Vite dev server port
     volumes:
       - ./:/var/www/html
-    command: sh -c "npm install && npm run build"
+    environment:
+      - HOST=0.0.0.0  # Allow external connections
+    command: sh -c "npm install && npm run dev"
     depends_on:
       - php
 
