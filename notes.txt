@@ -10,9 +10,9 @@ laravel new my-app
 
 - permissions
 The error indicates that Laravel can't write to the log file and bootstrap/cache directory:
-The log file issue: The stream or file "/home/jezz/projects/learn/laravel-project-starter/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied
+The log file issue: The stream or file ".../laravel-project-starter/storage/logs/laravel.log" could not be opened in append mode: Failed to open stream: Permission denied
+The cache directory issue: The .../laravel-project-starter/bootstrap/cache directory must be present and writable
 
-The cache directory issue: The /home/jezz/projects/learn/laravel-project-starter/bootstrap/cache directory must be present and writable
 sudo chmod -R 775 storage bootstrap/cache
 sudo chown -R www-data:www-data storage bootstrap/cache
 docker exec -it php-laravel_project_starter sh -c "chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache"
