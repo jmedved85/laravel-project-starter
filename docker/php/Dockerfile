@@ -1,33 +1,34 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.4-fpm
 
 # Useful PHP extension installer image, copy binary into your container
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
 # Install dependencies
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         acl \
         bash \
-        fcgi \
+        libfcgi0ldbl \
         file \
         gettext \
         git \
-        libstdc++ \
-        libx11 \
-        libxrender \
-        libxext \
+        libstdc++6 \
+        libx11-6 \
+        libxrender1 \
+        libxext6 \
         libssl3 \
         ca-certificates \
         fontconfig \
-        freetype \
-        ttf-dejavu \
+        libfreetype6 \
+        fonts-dejavu \
         wget \
         tar \
-        gmp \
-        libjpeg-turbo \
-        libpng \
-        zlib \
+        libgmp10 \
+        libjpeg62-turbo \
+        libpng16-16 \
+        zlib1g \
         nano \
-        sudo
+        sudo \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN set -eux; \

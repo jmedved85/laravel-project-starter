@@ -73,7 +73,7 @@ docker exec php-laravel_project_starter chmod -R 775 /var/www/html/storage /var/
 
 This project includes the following services:
 
-- **php** - PHP 8.4 FPM (Alpine) with common extensions
+- **php** - PHP 8.4 FPM (Debian) with common extensions
 - **nginx** - Nginx web server
 - **mysql** - MySQL 8.0.39
 - **phpmyadmin** - Database management UI
